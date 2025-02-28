@@ -15,4 +15,10 @@
         {% for match in tournament["matches"] %}
             <div class="match">
                 <h3>{{ match["match"] }}</h3>
-                <p>Sc
+                <p>Score: {{ match["score"] }}</p>
+                <p>Winner: {{ match["winner"] }}</p>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

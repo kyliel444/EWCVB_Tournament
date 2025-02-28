@@ -18,3 +18,16 @@ h2 {
     background-color: #444;
     padding: 10px;
     margin: 10px auto;
+    border-radius: 5px;
+    width: 50%;
+}
+
+form {
+    margin-top: 20px;
+}
+
+input {
+    display: block;
+    margin: 10px auto;
+    padding: 8px;
+}

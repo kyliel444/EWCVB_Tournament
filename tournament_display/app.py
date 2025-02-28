@@ -23,4 +23,24 @@ def index():
 def admin():
     return render_template("admin.html", tournament=tournament_data)
 
-@app.route("/update", met
+@app.route("/update", methods=["POST"])
+def update():
+    """Receive match results and update the tournament."""
+    global tournament_data
+    data = request.json
+
+    # Add the new match result
+    tournament_data["matches"].append(data)
+
+    # Save the data
+    with open("data.json", "w") as f:
+        json.dump(tournament_data, f, indent=4)
+
+    # Notify clients about the update
+    socketio.emit("refresh", tournament_data)
+
+    return jsonify({"status": "success"}), 200
+
+if __name__ == "__main__":
+    socketio.run(app, debug=True)
+
