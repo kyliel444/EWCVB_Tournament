@@ -60,9 +60,9 @@ def update():
         json.dump(tournament_data, f, indent=4)
 
     # Notify all connected clients about the update
-    socketio.emit("refresh", tournament_data)
+    SocketIO.emit("refresh", tournament_data)
 
     return jsonify({"status": "success"}), 200
 
 if __name__ == "__main__":
-    socketio.run(app, debug=True)
+    SocketIO.run(app, debug=True)
