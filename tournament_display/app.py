@@ -47,4 +47,22 @@ def update():
         "team2": data["team2"],
         "time": data["time"],
         "court": data["court"],
-        
+        "set1_score": data["set1_score"],
+        "set2_score": data["set2_score"],
+        "set3_score": data.get("set3_score", ""),  # Default to empty if not provided
+        "winner": data["winner"]
+    }
+
+    tournament_data["matches"].append(match_data)
+
+    # Save the updated data
+    with open("data.json", "w") as f:
+        json.dump(tournament_data, f, indent=4)
+
+    # Notify all connected clients about the update
+    SocketIO.emit("refresh", tournament_data)
+
+    return jsonify({"status": "success"}), 200
+
+if __name__ == "__main__":
+    SocketIO.run(app, debug=True)
