@@ -15,11 +15,17 @@
     <div id="matches">
         {% for match in tournament["matches"] %}
             <div class="match">
-                <h3>{{ match["match"] }}</h3>
+                <h3>{{ match["pool"] }}: {{ match["team1"] }} vs {{ match["team2"] }}</h3>
                 <p><strong>Time:</strong> {{ match["time"] }}</p>
                 <p><strong>Court:</strong> {{ match["court"] }}</p>
-                <p><strong>Score:</strong> {{ match["score"] }}</p>
-                <p><strong>Winner:</strong> {{ match["winner"] }}</p>
+                <p><strong>Set 1:</strong> {{ match["set1_score"] }}</p>
+                <p><strong>Set 2:</strong> {{ match["set2_score"] }}</p>
+
+                {% if match["set3_score"] %}
+                    <p><strong>Set 3:</strong> {{ match["set3_score"] }}</p>
+                {% endif %}
+
+                <p><strong>Winner:</strong> <span class="winner">{{ match["winner"] }}</span></p>
             </div>
         {% endfor %}
     </div>

@@ -31,20 +31,26 @@ def update():
     global tournament_data
     data = request.json
 
-    # Add the new match result with time and court number
-    tournament_data["matches"].append({
-        "match": data["match"],
+    # Add the new match result with the new structure
+    match_data = {
+        "pool": data["pool"],
+        "team1": data["team1"],
+        "team2": data["team2"],
         "time": data["time"],
         "court": data["court"],
-        "score": data["score"],
+        "set1_score": data["set1_score"],
+        "set2_score": data["set2_score"],
+        "set3_score": data.get("set3_score", ""),  # Default to empty if not provided
         "winner": data["winner"]
-    })
+    }
 
-    # Save the data
+    tournament_data["matches"].append(match_data)
+
+    # Save the updated data
     with open("data.json", "w") as f:
         json.dump(tournament_data, f, indent=4)
 
-    # Notify clients about the update
+    # Notify all connected clients about the update
     socketio.emit("refresh", tournament_data)
 
     return jsonify({"status": "success"}), 200
