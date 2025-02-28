@@ -1,5 +1,7 @@
 from flask import Flask, render_template, request, jsonify, send_from_directory
 import os
+import json
+from flask_socketio import SocketIO
 
 app = Flask(__name__, static_folder="static")
 
@@ -30,7 +32,7 @@ except FileNotFoundError:
         "power_pools": [],
         "brackets": []
     }
-    
+
 
 @app.route("/update", methods=["POST"])
 def update():
