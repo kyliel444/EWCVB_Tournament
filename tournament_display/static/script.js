@@ -10,8 +10,10 @@ socket.on("refresh", function (data) {
         let matchDiv = document.createElement("div");
         matchDiv.classList.add("match");
         matchDiv.innerHTML = `<h3>${match.match}</h3>
-                              <p>Score: ${match.score}</p>
-                              <p>Winner: ${match.winner}</p>`;
+                              <p><strong>Time:</strong> ${match.time}</p>
+                              <p><strong>Court:</strong> ${match.court}</p>
+                              <p><strong>Score:</strong> ${match.score}</p>
+                              <p><strong>Winner:</strong> ${match.winner}</p>`;
         matchesDiv.appendChild(matchDiv);
     });
 });
@@ -22,6 +24,8 @@ if (document.getElementById("updateForm")) {
         e.preventDefault();
 
         let match = document.getElementById("match").value;
+        let time = document.getElementById("time").value;
+        let court = document.getElementById("court").value;
         let score = document.getElementById("score").value;
         let winner = document.getElementById("winner").value;
 
@@ -30,7 +34,7 @@ if (document.getElementById("updateForm")) {
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({ match, score, winner })
+            body: JSON.stringify({ match, time, court, score, winner })
         }).then(response => response.json())
           .then(data => console.log("Update successful:", data))
           .catch(error => console.error("Error:", error));

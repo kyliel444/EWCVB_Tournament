@@ -11,8 +11,10 @@ try:
         tournament_data = json.load(f)
 except FileNotFoundError:
     tournament_data = {
-        "phase": "Pool Play",  # Can be "Pool Play", "Power Pools", or "Bracket Play"
-        "matches": []
+        "phase": "Pool Play",
+        "matches": [],
+        "power_pools": [],
+        "brackets": []
     }
 
 @app.route("/")
@@ -29,8 +31,14 @@ def update():
     global tournament_data
     data = request.json
 
-    # Add the new match result
-    tournament_data["matches"].append(data)
+    # Add the new match result with time and court number
+    tournament_data["matches"].append({
+        "match": data["match"],
+        "time": data["time"],
+        "court": data["court"],
+        "score": data["score"],
+        "winner": data["winner"]
+    })
 
     # Save the data
     with open("data.json", "w") as f:
@@ -43,4 +51,3 @@ def update():
 
 if __name__ == "__main__":
     socketio.run(app, debug=True)
-

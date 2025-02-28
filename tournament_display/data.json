@@ -3,25 +3,19 @@
     "matches": [
         {
             "match": "Pool A - Team 1 vs Team 2",
+            "time": "10:00 AM",
+            "court": "Court 1",
             "score": "25-18, 22-25, 15-12",
             "winner": "Team 1"
         },
         {
             "match": "Pool B - Team 3 vs Team 4",
+            "time": "11:00 AM",
+            "court": "Court 2",
             "score": "25-21, 25-20",
             "winner": "Team 3"
         }
     ],
-
-
-    
-    "power_pools": [
-    { "team": "Team 1", "assigned_pool": "Power Pool A" },
-    { "team": "Team 3", "assigned_pool": "Power Pool A" },
-    { "team": "Team 2", "assigned_pool": "Power Pool B" }
-    ],
-
-
-
+    "power_pools": [],
     "brackets": []
 }

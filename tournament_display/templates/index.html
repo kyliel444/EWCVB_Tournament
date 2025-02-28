@@ -10,13 +10,16 @@
 </head>
 <body>
     <h1>Tournament Updates</h1>
-    <h2 id="phase">{{ tournament["phase"] }}</h2>
+    <h2>Phase: <span id="phase">{{ tournament["phase"] }}</span></h2>
+    
     <div id="matches">
         {% for match in tournament["matches"] %}
             <div class="match">
                 <h3>{{ match["match"] }}</h3>
-                <p>Score: {{ match["score"] }}</p>
-                <p>Winner: {{ match["winner"] }}</p>
+                <p><strong>Time:</strong> {{ match["time"] }}</p>
+                <p><strong>Court:</strong> {{ match["court"] }}</p>
+                <p><strong>Score:</strong> {{ match["score"] }}</p>
+                <p><strong>Winner:</strong> {{ match["winner"] }}</p>
             </div>
         {% endfor %}
     </div>
