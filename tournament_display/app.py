@@ -1,9 +1,23 @@
-from flask import Flask, render_template, request, jsonify
-from flask_socketio import SocketIO
-import json
+from flask import Flask, render_template, request, jsonify, send_from_directory
+import os
 
-app = Flask(__name__)
-socketio = SocketIO(app)
+app = Flask(__name__, static_folder="static")
+
+@app.route("/")
+def index():
+    return render_template("index.html")
+
+@app.route("/admin")
+def admin():
+    return render_template("admin.html")
+
+@app.route("/static/<path:filename>")
+def static_files(filename):
+    return send_from_directory("static", filename)
+
+if __name__ == "__main__":
+    app.run(debug=True)
+
 
 # Load or initialize tournament data
 try:
@@ -16,14 +30,7 @@ except FileNotFoundError:
         "power_pools": [],
         "brackets": []
     }
-
-@app.route("/")
-def index():
-    return render_template("index.html", tournament=tournament_data)
-
-@app.route("/admin")
-def admin():
-    return render_template("admin.html", tournament=tournament_data)
+    
 
 @app.route("/update", methods=["POST"])
 def update():
