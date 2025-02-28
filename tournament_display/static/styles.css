@@ -27,19 +27,3 @@ label {
 input, select, button {
     width: 80%;
     padding: 10px;
-    margin-top: 5px;
-    border-radius: 5px;
-    border: 1px solid #73000a;
-}
-
-button {
-    background-color: #73000a;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #b59a57;
-    color: black;
-}
