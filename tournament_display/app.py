@@ -1,26 +1,26 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, jsonify
 from flask_socketio import SocketIO
+import json
 
 app = Flask(__name__)
 socketio = SocketIO(app)
 
-# Tournament Data (Example)
-tournament_data = {
-    "match": "Final - Team A vs Team B",
-    "score": "0 - 0",
-    "status": "Ongoing"
-}
+# Load or initialize tournament data
+try:
+    with open("data.json", "r") as f:
+        tournament_data = json.load(f)
+except FileNotFoundError:
+    tournament_data = {
+        "phase": "Pool Play",  # Can be "Pool Play", "Power Pools", or "Bracket Play"
+        "matches": []
+    }
 
 @app.route("/")
 def index():
     return render_template("index.html", tournament=tournament_data)
 
-# WebSocket event to update tournament info
-@socketio.on("update_tournament")
-def update_tournament(data):
-    global tournament_data
-    tournament_data.update(data)
-    socketio.emit("refresh", tournament_data)  # Send update to all clients
+@app.route("/admin")
+def admin():
+    return render_template("admin.html", tournament=tournament_data)
 
-if __name__ == "__main__":
-    socketio.run(app, debug=True)
+@app.route("/update", met

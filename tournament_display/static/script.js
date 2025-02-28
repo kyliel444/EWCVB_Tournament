@@ -1,7 +1,7 @@
 const socket = io();
 
+// Listen for updates from the server and refresh the display
 socket.on("refresh", function (data) {
-    document.getElementById("match").innerText = data.match;
-    document.getElementById("score").innerText = data.score;
-    document.getElementById("status").innerText = data.status;
-});
+    document.getElementById("phase").innerText = data.phase;
+    let matchesDiv = document.getElementById("matches");
+    match

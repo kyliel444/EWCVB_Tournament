@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script defer src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<body>
+    <h1>Admin - Update Tournament</h1>
+    <form id="updateForm">
+        <label>Match:</label>
+        <input type="text" id="match" required>
+        
+        <label>Final Score:</label>
+        <input type="text" id="score" required>
+
+        <label>Winner:</label>
+        <input type="text" id="winner" required>
+
+        <button type="submit">Update</button>
+    </form>
+</body>
+</html>

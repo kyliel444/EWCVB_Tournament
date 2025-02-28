@@ -3,17 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tournament Updates</title>
+    <title>Tournament Display</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.js"></script>
     <script defer src="{{ url_for('static', filename='script.js') }}"></script>
 </head>
 <body>
-    <div class="container">
-        <h1>Tournament Updates</h1>
-        <h2 id="match">{{ tournament["match"] }}</h2>
-        <h3 id="score">{{ tournament["score"] }}</h3>
-        <p id="status">{{ tournament["status"] }}</p>
-    </div>
-</body>
-</html>
+    <h1>Tournament Updates</h1>
+    <h2 id="phase">{{ tournament["phase"] }}</h2>
+    <div id="matches">
+        {% for match in tournament["matches"] %}
+            <div class="match">
+                <h3>{{ match["match"] }}</h3>
+                <p>Sc

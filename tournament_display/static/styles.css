@@ -5,22 +5,16 @@ body {
     color: white;
 }
 
-.container {
-    margin-top: 10%;
-}
-
 h1 {
     font-size: 2.5rem;
 }
 
 h2 {
     font-size: 2rem;
+    color: yellow;
 }
 
-h3 {
-    font-size: 1.5rem;
-}
-
-p {
-    font-size: 1.2rem;
-}
+.match {
+    background-color: #444;
+    padding: 10px;
+    margin: 10px auto;
