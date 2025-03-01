@@ -1,15 +1,89 @@
+/* Page Styling */
+body {
+    font-family: "Tahoma", sans-serif;
+    background-color: #f5e1a4; /* Light gold background */
+    color: black;
+    text-align: center;
+}
+
+/* Main Headings */
+h1 {
+    font-size: 26px;
+    font-weight: bold;
+    text-align: center;
+    color: black;
+}
+
+h2 {
+    font-size: 20px;
+    text-align: center;
+    color: black;
+}
+
+/* Match Box Styling */
 .match-box {
-    background-color: #b59a57;
-    color: #73000a;
+    position: relative;
+    background-color: white;
+    border: 3px solid #73000a; /* Maroon border */
     padding: 15px;
-    margin: 10px auto;
+    margin: 15px auto;
     border-radius: 10px;
     width: 50%;
     text-align: center;
     font-size: 18px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
 }
 
+/* Match Titles (Team Names) */
 .match-title {
     font-size: 22px;
     font-weight: bold;
+}
+
+/* Match Details (Pool, Time, Court) */
+.match-details {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+/* Match Score */
+.match-score {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Winner */
+.match-winner {
+    font-size: 18px;
+    font-weight: bold;
+    color: #73000a;
+}
+
+/* Status Box */
+.match-status {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 5px 10px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 5px;
+    color: white;
+}
+
+/* Status Colors */
+.status-upcoming {
+    background-color: yellow;
+    color: black;
+}
+
+.status-in-progress {
+    background-color: green;
+    color: white;
+}
+
+.status-complete {
+    background-color: red;
+    color: white;
 }

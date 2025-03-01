@@ -9,22 +9,31 @@
     <script defer src="{{ url_for('static', filename='script.js') }}"></script>
 </head>
 <body>
-    <h1>Tournament Updates</h1>
+    <h1>Elon Women's Club Volleyball Tournament - Updates</h1>
     <h2>Phase: <span id="phase">{{ tournament.get("phase", "Unknown Phase") }}</span></h2>
 
     <div id="matches">
         {% for match in tournament.get("matches", []) %}
             <div class="match-box">
+                <!-- Status Label -->
+                <div class="match-status 
+                    {% if match.get('status') == 'In Progress' %}status-in-progress{% elif match.get('status') == 'Complete' %}status-complete{% else %}status-upcoming{% endif %}">
+                    {{ match.get("status", "Upcoming") }}
+                </div>
+
+                <!-- Team Names -->
                 <p class="match-title">
-                    <strong>{{ match.get("team1", "Team TBD") }} vs {{ match.get("team2", "Team TBD") }}</strong>
+                    {{ match.get("team1", "Team TBD") }} vs {{ match.get("team2", "Team TBD") }}
                 </p>
+
+                <!-- Match Details -->
                 <p class="match-details">
                     <strong>Pool:</strong> {{ match.get("pool", "TBD") }} |
                     <strong>Time:</strong> {{ match.get("time", "TBD") }} |
                     <strong>Court:</strong> {{ match.get("court", "TBD") }}
                 </p>
-                <p class="match-status">Status: <strong>{{ match.get("status", "Upcoming") }}</strong></p>
 
+                <!-- Only show score and winner if match is complete -->
                 {% if match.get("status") == "Complete" %}
                     <p class="match-score">
                         <strong>Set 1:</strong> {{ match.get("set1_score", "-") }} |
