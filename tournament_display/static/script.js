@@ -17,13 +17,24 @@ document.getElementById("updateForm").addEventListener("submit", function (e) {
         winner: document.getElementById("winner").value || ""
     };
 
+    // Send data to the backend
     fetch("/update", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
         body: JSON.stringify(matchData)
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log("Match updated:", data);
+        alert("Match successfully recorded!");
+    })
+    .catch(error => {
+        console.error("Error:", error);
+        alert("Error updating match.");
     });
 
+    // Reset form after submission
     document.getElementById("updateForm").reset();
 });
