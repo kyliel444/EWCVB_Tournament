@@ -28,4 +28,24 @@
 
                 <!-- Match Details -->
                 <p class="match-details">
-         
+                    <strong>Pool:</strong> {{ match.get("pool", "TBD") }} |
+                    <strong>Time:</strong> {{ match.get("time", "TBD") }} |
+                    <strong>Court:</strong> {{ match.get("court", "TBD") }}
+                </p>
+
+                <!-- Only show score and winner if match is complete -->
+                {% if match.get("status") == "Complete" %}
+                    <p class="match-score">
+                        <strong>Set 1:</strong> {{ match.get("set1_score", "-") }} |
+                        <strong>Set 2:</strong> {{ match.get("set2_score", "-") }}
+                        {% if match.get("set3_score") %}
+                            | <strong>Set 3:</strong> {{ match["set3_score"] }}
+                        {% endif %}
+                    </p>
+                    <p class="match-winner"><strong>Winner:</strong> {{ match.get("winner", "TBD") }}</p>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

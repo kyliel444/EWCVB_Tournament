@@ -64,4 +64,36 @@
         <select id="court">
             <option value="">Select Court</option>
             {% for i in range(1, 9) %}
-                <option value="{{ i }}">Court {{ i 
+                <option value="{{ i }}">Court {{ i }}</option>
+            {% endfor %}
+        </select>
+
+        <!-- Match Status -->
+        <label>Status:</label>
+        <select id="status">
+            <option value="Upcoming">Upcoming</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Complete">Complete</option>
+        </select>
+
+        <!-- Set Scores & Winner (Only for Completed Matches) -->
+        <div id="score-section">
+            <label>Set 1 Final Score:</label>
+            <input type="text" id="set1_score">
+            <label>Set 2 Final Score:</label>
+            <input type="text" id="set2_score">
+            <label>Set 3 Final Score (if applicable):</label>
+            <input type="text" id="set3_score">
+            <label>Winner:</label>
+            <select id="winner">
+                <option value="">Select Winner</option>
+                {% for i in range(1, 19) %}
+                    <option value="Team {{ i }}">Team {{ i }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <button type="submit">Update</button>
+    </form>
+</body>
+</html>
