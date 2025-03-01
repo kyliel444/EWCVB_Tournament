@@ -10,7 +10,8 @@
             "set1_score": "25-18",
             "set2_score": "22-25",
             "set3_score": "15-12",
-            "winner": "Team 1"
+            "winner": "Team 1",
+            "status": "In-Progress"
            },
         {
             "pool": "Pool B",
