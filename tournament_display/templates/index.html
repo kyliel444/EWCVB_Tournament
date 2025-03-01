@@ -10,22 +10,25 @@
 </head>
 <body>
     <h1>Tournament Updates</h1>
-    <h2>Phase: <span id="phase">{{ tournament["phase"] }}</span></h2>
-    
-    <div id="matches">
-        {% for match in tournament["matches"] %}
-            <div class="match">
-                <h3>{{ match["pool"] }}: {{ match["team1"] }} vs {{ match["team2"] }}</h3>
-                <p><strong>Time:</strong> {{ match["time"] }}</p>
-                <p><strong>Court:</strong> {{ match["court"] }}</p>
-                <p><strong>Set 1:</strong> {{ match["set1_score"] }}</p>
-                <p><strong>Set 2:</strong> {{ match["set2_score"] }}</p>
+    <h2>Phase: <span id="phase">{{ tournament.get("phase", "Unknown Phase") }}</span></h2>
 
-                {% if match["set3_score"] %}
+    <div id="matches">
+        {% for match in tournament.get("matches", []) %}
+            <div class="match">
+                <h3>{{ match.get("pool", "Unknown Pool") }}: 
+                    {{ match.get("team1", "Unknown Team") }} vs 
+                    {{ match.get("team2", "Unknown Team") }}
+                </h3>
+                <p><strong>Time:</strong> {{ match.get("time", "TBD") }}</p>
+                <p><strong>Court:</strong> {{ match.get("court", "TBD") }}</p>
+                <p><strong>Set 1:</strong> {{ match.get("set1_score", "-") }}</p>
+                <p><strong>Set 2:</strong> {{ match.get("set2_score", "-") }}</p>
+
+                {% if match.get("set3_score") %}
                     <p><strong>Set 3:</strong> {{ match["set3_score"] }}</p>
                 {% endif %}
 
-                <p><strong>Winner:</strong> <span class="winner">{{ match["winner"] }}</span></p>
+                <p><strong>Winner:</strong> <span class="winner">{{ match.get("winner", "TBD") }}</span></p>
             </div>
         {% endfor %}
     </div>

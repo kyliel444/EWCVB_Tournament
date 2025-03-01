@@ -1,38 +1,41 @@
-from flask import Flask, render_template, request, jsonify, send_from_directory
-import os
-import json
+from flask import Flask, render_template, request, jsonify
 from flask_socketio import SocketIO
+import json
+import os
 
-app = Flask(__name__, static_folder="static")
+app = Flask(__name__)
+socketio = SocketIO(app)
+
+# Path to data.json
+DATA_FILE = "data.json"
+
+# Load or initialize tournament data
+def load_data():
+    if os.path.exists(DATA_FILE):
+        with open(DATA_FILE, "r") as f:
+            return json.load(f)
+    else:
+        return {
+            "phase": "Pool Play",
+            "matches": [],
+            "power_pools": [],
+            "brackets": []
+        }
+
+# Save tournament data
+def save_data(data):
+    with open(DATA_FILE, "w") as f:
+        json.dump(data, f, indent=4)
+
+tournament_data = load_data()
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    return render_template("index.html", tournament=tournament_data)
 
 @app.route("/admin")
 def admin():
-    return render_template("admin.html")
-
-@app.route("/static/<path:filename>")
-def static_files(filename):
-    return send_from_directory("static", filename)
-
-if __name__ == "__main__":
-    app.run(debug=True)
-
-
-# Load or initialize tournament data
-try:
-    with open("data.json", "r") as f:
-        tournament_data = json.load(f)
-except FileNotFoundError:
-    tournament_data = {
-        "phase": "Pool Play",
-        "matches": [],
-        "power_pools": [],
-        "brackets": []
-    }
-
+    return render_template("admin.html", tournament=tournament_data)
 
 @app.route("/update", methods=["POST"])
 def update():
@@ -40,7 +43,7 @@ def update():
     global tournament_data
     data = request.json
 
-    # Add the new match result with the new structure
+    # Ensure all fields are included
     match_data = {
         "pool": data["pool"],
         "team1": data["team1"],
@@ -49,20 +52,19 @@ def update():
         "court": data["court"],
         "set1_score": data["set1_score"],
         "set2_score": data["set2_score"],
-        "set3_score": data.get("set3_score", ""),  # Default to empty if not provided
+        "set3_score": data.get("set3_score", ""),  # Default to empty if missing
         "winner": data["winner"]
     }
 
     tournament_data["matches"].append(match_data)
 
-    # Save the updated data
-    with open("data.json", "w") as f:
-        json.dump(tournament_data, f, indent=4)
+    # Save updated data
+    save_data(tournament_data)
 
-    # Notify all connected clients about the update
-    SocketIO.emit("refresh", tournament_data)
+    # Notify all clients via WebSocket
+    socketio.emit("refresh", tournament_data)
 
     return jsonify({"status": "success"}), 200
 
 if __name__ == "__main__":
-    SocketIO.run(app, debug=True)
+    socketio.run(app, debug=True)
