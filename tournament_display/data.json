@@ -3,14 +3,10 @@
     "matches": [
         {
             "pool": "Pool A",
-            "team1": "Team 1",
-            "team2": "Team 2",
+            "team1": "Elon A",
+            "team2": "Elon B",
             "time": "10:00 AM",
             "court": "1",
-            "set1_score": "25-18",
-            "set2_score": "22-25",
-            "set3_score": "15-12",
-            "winner": "Team 1"
         },
         {
             "pool": "Pool B",
