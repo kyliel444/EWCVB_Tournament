@@ -25,48 +25,73 @@
         <!-- Team 1 Selection -->
         <label>Team 1:</label>
         <select id="team1">
-            <option value="">Select Team</option>
+            <option value="">Select Team 1</option>
+            <option value="Elon A">Elon A</option>
+            <option value="Elon B">Elon B</option>
+            <option value=""></option>
+            <option value=""></option>
+            <option value=""></option>
+            <option value=""></option>
+            <option value=""></option>
+            <option value=""></option>
+            <option value=""></option>
+            <option value=""></option>
+            <option value=""></option>
+            <option value=""></option>
+            <option value=""></option>
+            <option value=""></option>
+            <option value=""></option>
+            <option value=""></option>
+            <option value=""></option>
+            <option value=""></option>
+            <option value=""></option>
         </select>
 
         <!-- Team 2 Selection -->
         <label>Team 2:</label>
         <select id="team2">
             <option value="">Select Team</option>
+            {% for i in range(1, 19) %}
+                <option value="Team {{ i }}">Team {{ i }}</option>
+            {% endfor %}
         </select>
 
-        <!-- Time Selection -->
+        <!-- Time & Court Selection -->
         <label>Time:</label>
         <input type="text" id="time" placeholder="e.g., 10:00 AM" required>
 
-        <!-- Court Number Selection -->
         <label>Court Number:</label>
         <select id="court">
             <option value="">Select Court</option>
-            <option value="1">Court 1</option>
-            <option value="2">Court 2</option>
-            <option value="3">Court 3</option>
-            <option value="4">Court 4</option>
-            <option value="5">Court 5</option>
-            <option value="6">Court 6</option>
-            <option value="7">Court 7</option>
-            <option value="8">Court 8</option>
+            {% for i in range(1, 9) %}
+                <option value="{{ i }}">Court {{ i }}</option>
+            {% endfor %}
         </select>
 
-        <!-- Set Scores -->
-        <label>Set 1 Final Score:</label>
-        <input type="text" id="set1_score" required>
-
-        <label>Set 2 Final Score:</label>
-        <input type="text" id="set2_score" required>
-
-        <label>Set 3 Final Score (if applicable):</label>
-        <input type="text" id="set3_score">
-
-        <!-- Winner Selection -->
-        <label>Winner:</label>
-        <select id="winner">
-            <option value="">Select Winner</option>
+        <!-- Match Status -->
+        <label>Status:</label>
+        <select id="status">
+            <option value="Upcoming">Upcoming</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Complete">Complete</option>
         </select>
+
+        <!-- Set Scores & Winner (Only for Completed Matches) -->
+        <div id="score-section">
+            <label>Set 1 Final Score:</label>
+            <input type="text" id="set1_score">
+            <label>Set 2 Final Score:</label>
+            <input type="text" id="set2_score">
+            <label>Set 3 Final Score (if applicable):</label>
+            <input type="text" id="set3_score">
+            <label>Winner:</label>
+            <select id="winner">
+                <option value="">Select Winner</option>
+                {% for i in range(1, 19) %}
+                    <option value="Team {{ i }}">Team {{ i }}</option>
+                {% endfor %}
+            </select>
+        </div>
 
         <button type="submit">Update</button>
     </form>

@@ -14,21 +14,27 @@
 
     <div id="matches">
         {% for match in tournament.get("matches", []) %}
-            <div class="match">
-                <h3>{{ match.get("pool", "Unknown Pool") }}: 
-                    {{ match.get("team1", "Unknown Team") }} vs 
-                    {{ match.get("team2", "Unknown Team") }}
-                </h3>
-                <p><strong>Time:</strong> {{ match.get("time", "TBD") }}</p>
-                <p><strong>Court:</strong> {{ match.get("court", "TBD") }}</p>
-                <p><strong>Set 1:</strong> {{ match.get("set1_score", "-") }}</p>
-                <p><strong>Set 2:</strong> {{ match.get("set2_score", "-") }}</p>
+            <div class="match-box">
+                <p class="match-title">
+                    <strong>{{ match.get("team1", "Team TBD") }} vs {{ match.get("team2", "Team TBD") }}</strong>
+                </p>
+                <p class="match-details">
+                    <strong>Pool:</strong> {{ match.get("pool", "TBD") }} |
+                    <strong>Time:</strong> {{ match.get("time", "TBD") }} |
+                    <strong>Court:</strong> {{ match.get("court", "TBD") }}
+                </p>
+                <p class="match-status">Status: <strong>{{ match.get("status", "Upcoming") }}</strong></p>
 
-                {% if match.get("set3_score") %}
-                    <p><strong>Set 3:</strong> {{ match["set3_score"] }}</p>
+                {% if match.get("status") == "Complete" %}
+                    <p class="match-score">
+                        <strong>Set 1:</strong> {{ match.get("set1_score", "-") }} |
+                        <strong>Set 2:</strong> {{ match.get("set2_score", "-") }}
+                        {% if match.get("set3_score") %}
+                            | <strong>Set 3:</strong> {{ match["set3_score"] }}
+                        {% endif %}
+                    </p>
+                    <p class="match-winner"><strong>Winner:</strong> {{ match.get("winner", "TBD") }}</p>
                 {% endif %}
-
-                <p><strong>Winner:</strong> <span class="winner">{{ match.get("winner", "TBD") }}</span></p>
             </div>
         {% endfor %}
     </div>
