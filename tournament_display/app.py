@@ -2,9 +2,14 @@ from flask import Flask, render_template, request, jsonify
 from flask_socketio import SocketIO
 import json
 import os
+from flask import send_from_directory
 
 app = Flask(__name__)
 socketio = SocketIO(app)
+
+@app.route('/static/<path:filename>')
+def static_files(filename):
+    return send_from_directory("static", filename)
 
 # Path to data.json
 DATA_FILE = "data.json"
