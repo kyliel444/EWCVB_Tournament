@@ -3,25 +3,234 @@
     "matches": [
         {
             "pool": "Pool A",
-            "team1": "Elon A",
-            "team2": "Elon B",
-            "time": "10:00 AM",
+            "team1": "",
+            "team2": "",
+            "time": "8:00 AM",
             "court": "1",
-            "set1_score": "25-18",
-            "set2_score": "22-25",
-            "set3_score": "15-12",
-            "winner": "Team 1"
-           },
+            "set1_score": "0-0",
+            "set2_score": "0-0",
+            "set3_score": "0-0",
+            "winner": "",
+            "status": "Upcoming"
+        },
+        {
+            "pool": "Pool A",
+            "team1": "",
+            "team2": "",
+            "time": "9:15 AM",
+            "court": "1",
+            "set1_score": "0-0",
+            "set2_score": "0-0",
+            "set3_score": "0-0",
+            "winner": "",
+            "status": "Upcoming"
+        },
+        {
+            "pool": "Pool A",
+            "team1": "",
+            "team2": "",
+            "time": "10:30 AM",
+            "court": "1",
+            "set1_score": "0-0",
+            "set2_score": "0-0",
+            "set3_score": "0-0",
+            "winner": "",
+            "status": "Upcoming"
+        },
+
+
+
         {
             "pool": "Pool B",
-            "team1": "Team 3",
-            "team2": "Team 4",
-            "time": "11:00 AM",
+            "team1": "",
+            "team2": "",
+            "time": "8:00 AM",
             "court": "2",
-            "set1_score": "25-21",
-            "set2_score": "25-20",
-            "set3_score": "",
-            "winner": "Team 3"
+            "set1_score": "0-0",
+            "set2_score": "0-0",
+            "set3_score": "0-0",
+            "winner": "",
+            "status": "Upcoming"
+        },
+        {
+            "pool": "Pool B",
+            "team1": "",
+            "team2": "",
+            "time": "9:15 AM",
+            "court": "2",
+            "set1_score": "0-0",
+            "set2_score": "0-0",
+            "set3_score": "0-0",
+            "winner": "",
+            "status": "Upcoming"
+        },
+        {
+            "pool": "Pool B",
+            "team1": "",
+            "team2": "",
+            "time": "10:30 AM",
+            "court": "2",
+            "set1_score": "0-0",
+            "set2_score": "0-0",
+            "set3_score": "0-0",
+            "winner": "",
+            "status": "Upcoming"
+        },
+
+
+
+        {
+            "pool": "Pool C",
+            "team1": "",
+            "team2": "",
+            "time": "8:00 AM",
+            "court": "3",
+            "set1_score": "0-0",
+            "set2_score": "0-0",
+            "set3_score": "0-0",
+            "winner": "",
+            "status": "Upcoming"
+        },
+        {
+            "pool": "Pool C",
+            "team1": "",
+            "team2": "",
+            "time": "9:15 AM",
+            "court": "3",
+            "set1_score": "0-0",
+            "set2_score": "0-0",
+            "set3_score": "0-0",
+            "winner": "",
+            "status": "Upcoming"
+        },
+        {
+            "pool": "Pool C",
+            "team1": "",
+            "team2": "",
+            "time": "10:30 AM",
+            "court": "3",
+            "set1_score": "0-0",
+            "set2_score": "0-0",
+            "set3_score": "0-0",
+            "winner": "",
+            "status": "Upcoming"
+        },
+
+
+
+        {
+            "pool": "Pool D",
+            "team1": "",
+            "team2": "",
+            "time": "8:00 AM",
+            "court": "4",
+            "set1_score": "0-0",
+            "set2_score": "0-0",
+            "set3_score": "0-0",
+            "winner": "",
+            "status": "Upcoming"
+        },
+        {
+            "pool": "Pool D",
+            "team1": "",
+            "team2": "",
+            "time": "9:15 AM",
+            "court": "4",
+            "set1_score": "0-0",
+            "set2_score": "0-0",
+            "set3_score": "0-0",
+            "winner": "",
+            "status": "Upcoming"
+        },
+        {
+            "pool": "Pool D",
+            "team1": "",
+            "team2": "",
+            "time": "10:30 AM",
+            "court": "4",
+            "set1_score": "0-0",
+            "set2_score": "0-0",
+            "set3_score": "0-0",
+            "winner": "",
+            "status": "Upcoming"
+        },
+
+
+        
+        {
+            "pool": "Pool E",
+            "team1": "",
+            "team2": "",
+            "time": "8:00 AM",
+            "court": "5",
+            "set1_score": "0-0",
+            "set2_score": "0-0",
+            "set3_score": "0-0",
+            "winner": "",
+            "status": "Upcoming"
+        },
+        {
+            "pool": "Pool E",
+            "team1": "",
+            "team2": "",
+            "time": "9:15 AM",
+            "court": "5",
+            "set1_score": "0-0",
+            "set2_score": "0-0",
+            "set3_score": "0-0",
+            "winner": "",
+            "status": "Upcoming"
+        },
+        {
+            "pool": "Pool E",
+            "team1": "",
+            "team2": "",
+            "time": "10:30 AM",
+            "court": "5",
+            "set1_score": "0-0",
+            "set2_score": "0-0",
+            "set3_score": "0-0",
+            "winner": "",
+            "status": "Upcoming"
+        },
+
+
+
+        {
+            "pool": "Pool F",
+            "team1": "",
+            "team2": "",
+            "time": "8:00 AM",
+            "court": "6",
+            "set1_score": "0-0",
+            "set2_score": "0-0",
+            "set3_score": "0-0",
+            "winner": "",
+            "status": "Upcoming"
+        },
+        {
+            "pool": "Pool F",
+            "team1": "",
+            "team2": "",
+            "time": "9:15 AM",
+            "court": "6",
+            "set1_score": "0-0",
+            "set2_score": "0-0",
+            "set3_score": "0-0",
+            "winner": "",
+            "status": "Upcoming"
+        },
+        {
+            "pool": "Pool F",
+            "team1": "",
+            "team2": "",
+            "time": "10:30 AM",
+            "court": "6",
+            "set1_score": "0-0",
+            "set2_score": "0-0",
+            "set3_score": "0-0",
+            "winner": "",
+            "status": "Upcoming"
         }
     ],
     "power_pools": [],
